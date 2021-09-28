@@ -1,0 +1,66 @@
+{
+  "name": "star-wars-movies",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Api Endpoints For Star Wars Movies",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint . --fix",
+    "start": "node index.js",
+    "dev": "nodemon -r dotenv/config index.js",
+    "db:up": "sequelize-cli db:migrate",
+    "db:down": "sequelize-cli db:migrate:undo:all",
+    "seed:up": "sequelize-cli db:seed:all",
+    "seed:down": "sequelize-cli db:seed:undo:all",
+    "edit": "npm run db:down && npm run db:up && npm run seed:up && npm run dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/St80ene/star-movies.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "sequelize",
+    "rest",
+    "api",
+    "postgresql",
+    "bcrypt"
+  ],
+  "bugs": {
+    "url": "https://github.com/St80ene/star-movies/issues"
+  },
+  "homepage": "https://github.com/St80ene/star-movies#readme",
+  "author": "Etiene Essenoh <etienejames5@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "eslint": "^7.24.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "nodemon": "^2.0.7",
+    "sequelize-cli": "^6.2.0"
+  },
+  "nodemonConfig": {
+    "restartable": "yes",
+    "ignore": [
+      "node_modules/**/node_modules"
+    ],
+    "delay": "1500",
+    "env": {
+      "NODE_ENV": "development",
+      "PORT": 4000
+    }
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "node-geocoder": "^3.27.0",
+    "pg": "^8.5.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.6.2",
+    "two-step-auth": "^1.1.2",
+    "v-response": "^1.1.0"
+  }
+}
