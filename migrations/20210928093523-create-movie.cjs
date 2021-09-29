@@ -15,7 +15,7 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       opening_crawl: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(2048),
       },
       director: {
         type: Sequelize.STRING,
@@ -23,11 +23,14 @@ module.exports = {
       producer: {
         type: Sequelize.STRING,
       },
+      release_date: {
+        type: Sequelize.STRING,
+      },
       characters: {
-        type: Sequelize.ARRAY(Sequelize.INTEGER),
+        type: Sequelize.ARRAY(Sequelize.STRING(2048)),
       },
       comments: {
-        type: Sequelize.ARRAY(Sequelize.INTEGER),
+        type: Sequelize.ARRAY(Sequelize.STRING(2048)),
       },
       createdAt: {
         allowNull: false,

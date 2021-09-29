@@ -2,23 +2,21 @@
 // eslint-disable-next-line import/extensions
 import Sequelize from 'sequelize';
 import enVariables from '../config/config.cjs';
-import movie from './movie';
-import character from './character';
-import comment from './comment';
-
+import movie from './movie.js';
+import character from './character.js';
+import comment from './comment.js';
 // require('dotenv').config();
 
 const env = process.env.NODE_ENV || 'development';
 const config = enVariables[env];
 const db = {};
 
+const postgresURI = process.env.POSTGRES_URI
+
 let sequelize;
 
 if (config.use_env_variable) {
-  sequelize = new Sequelize(
-    'postgres://sshjesuw:kdXC7ZbH6UHC3x88xG3daQO9xWqWgfOv@raja.db.elephantsql.com/sshjesuw',
-    config
-  );
+  sequelize = new Sequelize(postgresURI, config);
 } else {
   sequelize = new Sequelize(
     config.database,

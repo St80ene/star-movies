@@ -11,6 +11,7 @@ export default (sequelize, DataTypes) => {
         opening_crawl: this.opening_crawl,
         director: this.director,
         producer: this.producer,
+        release_date: this.release_date,
         characters: this.characters,
         comments: this.comments,
       };
@@ -19,12 +20,13 @@ export default (sequelize, DataTypes) => {
   Movie.init(
     {
       title: DataTypes.STRING,
-      episode: DataTypes.STRING,
-      opening_crawl: DataTypes.STRING,
+      episode: DataTypes.INTEGER,
+      opening_crawl: DataTypes.STRING(2048),
       director: DataTypes.STRING,
       producer: DataTypes.STRING,
-      characters: DataTypes.ARRAY(DataTypes.INTEGER),
-      comments: DataTypes.ARRAY(DataTypes.INTEGER),
+      release_date: DataTypes.STRING,
+      characters: DataTypes.ARRAY(DataTypes.STRING(2048)),
+      comments: DataTypes.ARRAY(DataTypes.STRING(2048)),
     },
     {
       sequelize,
